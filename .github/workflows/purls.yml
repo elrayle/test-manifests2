@@ -1,0 +1,19 @@
+name: Submit PURLs
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  submit-purls:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit PURLs
+        uses: hmaurer/purls-submission-action@main
+        with:
+          purls: |-
+            pkg:helm/zookeeper@13.7.3
+            pkg:helm/common@2.30.0
